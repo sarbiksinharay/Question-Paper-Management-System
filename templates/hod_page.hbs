@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HOD Exclusive Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+            font-family: "DM Sans", sans-serif;
+
+        }
+        body{
+            background-color: olivedrab;
+        }
+        #add_fc{
+            text-decoration: none;
+        }
+        th{
+            color: #1a1a1a;
+            font-size: 20px;
+        }
+        #table{
+            border-radius: 7px;
+            width: 100%;
+            height:100%;
+            border-width: 3px;
+            border-color: black;
+            border-style: solid;
+
+
+        }
+        td{
+            width: 500px;
+        }
+
+        #up_btn{
+            background-color: #82a182;
+            height: 100%;
+            width: 100%;
+            &:hover{
+                background-color: #5aa45a;
+                transition: 0.3s ease;
+                cursor: pointer;
+            }
+        }
+
+        #del_btn{
+            background-color: #a17c7c;
+            height: 100%;
+            width: 100%;
+            color: white;
+            &:hover{
+                background-color: #933636;
+                transition: 0.3s ease;
+                cursor: pointer;
+
+            }
+        }
+        a{
+            color: white;
+           margin-right: 9px;
+        }
+
+        input{
+            font-size: 15px;
+        /width: 100%;/
+        /height: 100%;/
+        }
+
+        .hr{
+            width: 325%;
+            height: 5px;
+        }
+       #add_fc{
+           background-color: tomato;
+           width:150px;
+           height: 35px;
+           margin-top: 20px;
+           border-radius: 7px;
+           border: none;
+           margin-left: 15px;
+           &:hover{
+               background-color: #5b0101;
+           }
+       }
+    </style>
+</head>
+<body>
+<table  id="table" border="1px" >
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th> Submission Time</th>
+        <th>Submission Date</th>
+        <th>AU Email</th>
+        <th>Faculty ID</th>
+        <th>Department</th>
+        <th>Subject</th>
+        <th>Course Code</th>
+        <th>Phone Number</th>
+        <th>Question Paper</th>
+
+        <th colspan="2" >Make Changes</th>
+
+    </tr>
+    </thead>
+
+<form action="/hod_panel" method="post">
+    <tbody>
+    {{#each fetch_data}}
+
+            <tr>
+
+                <input name="id" hidden type="text" value="{{this._id}}">
+
+                <td>
+                    <input type="text" name="name" value="{{this.full_name}}" >
+                </td>
+                <td>
+                    <input type="text" name="time" value="{{this.time}}" >
+                </td>
+                <td>
+                    <input type="date" name="date" value="{{this.date}}" >
+                </td>
+                <td>
+                    <input type="text" name="email" value="{{this.au_email}}" >
+                </td>
+                <td>
+                    <input type="text" name="roll" value="{{this.faculty_id}}" >
+                </td>
+                <td>
+                    <input type="text" name="branch" value="{{this.department}}" >
+                </td>
+                <td>
+                    <input type="text" name="course" value="{{this.subject}}" >
+                </td>
+                <td>
+                    <input type="text" name="section" value="{{this.course_code}}" >
+                </td>
+                <td>
+                    <input type="text" name="phone_number" value="{{this.phone_number}}" >
+                </td>
+                {{#if pdf}}
+                    <td>
+                        <embed src="uploads/{{this.qus_paper}}" type="application/pdf"  alt="Question Paper" />
+                    </td>
+                {{/if}}
+                <td>
+                    <embed src="uploads/{{this.qus_paper}}" type="application/pdf"  alt="Question Paper" />
+                </td>
+                <td>
+                    <input type="submit" id="up_btn" value="UPDATE"  name="sub" onclick="return confirmUpdate()" >
+                </td>
+                <td>
+                    <input name="id" hidden type="text" value="{{this._id}}">
+                    <input type="submit" id="del_btn" value="DELETE" name="sub"  onclick="return confirmDelete()">
+                </td>
+
+            </tr>
+        </form>
+    {{/each}}
+    </tbody>
+<br>
+</table><br><br><br>
+
+
+<button id="add_fc" value="ADD FC"><a id="add_fc" href="/register">Add Faculty</a></button><br><br><br>
+</body>
+</html>

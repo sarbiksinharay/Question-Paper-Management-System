@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Question Paper Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: "DM Sans", sans-serif;
+        }
+        body{
+            background-color: olivedrab;
+        }
+        .main_div1{
+
+            border-radius: 7px;
+            /*margin-left: 50%;*/
+            width: 350px;
+            height: 670px;
+            background-color: rgba(225,225,225,0.5);
+            display: flex;
+        }
+        input,select{
+            width: 85%;
+            height: 25px;
+            border-radius: 7px;
+            border: none;
+        }
+        .btn{
+            width: 100px;
+            height: 35px;
+            background-color: tomato;
+            color: black;
+            font-size: 15px;
+
+            &:hover{
+                background-color: maroon;
+                color:white;
+                font-weight: bolder;
+                transition: 0.3s ease;
+                cursor: pointer;
+            }
+        }
+        #checkbox{
+            width: 12px;
+            height: 12px;
+        }
+    </style>
+    <script>
+        function submitForm() {
+            // Capture current date and time
+            var currentDate = new Date();
+
+            // Format the date and time (adjust as needed)
+            var formattedDate = currentDate.getFullYear() + '-' +
+                    ('0' + (currentDate.getMonth() + 1)).slice(-2) + '-' +
+                    ('0' + currentDate.getDate()).slice(-2);
+
+            var formattedTime = ('0' + currentDate.getHours()).slice(-2) + ':' +
+                    ('0' + currentDate.getMinutes()).slice(-2) + ':' +
+                    ('0' + currentDate.getSeconds()).slice(-2);
+
+            // Assign the formatted date and time to hidden fields
+            document.getElementById("submission_date").value = formattedDate;
+            document.getElementById("submission_time").value = formattedTime;
+        }
+
+
+
+        function validatePhoneNumber() {
+            var phoneNumber = document.getElementById("ph_num").value;
+            // Phone number pattern: 10 digits, optional country code
+            // var phoneNumberPattern = /^\d{10}$/;
+
+            var phoneNumberPattern = /^\+?\d{10}$/;
+
+            if (!phoneNumberPattern.test(phoneNumber)) {
+                alert("Please enter a valid phone number.");
+                return false;
+            }
+
+            return true;
+        }
+
+        function validateEmail() {
+            var email = document.getElementById('email').value;
+            var pattern = /^[a-zA-Z0-9._%+-]+@stu\.adamasuniversity\.ac\.in$/;
+            if (pattern.test(email)) {
+                return true;
+            } else {
+                alert('Email is not valid! It should be in the format: user@stu.adamasuniversity.ac.in');
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+<center>
+    <header>
+        <h1>Upload Form</h1>
+    </header>
+    <hr><br><br><br>
+    <div class="main_div1" >
+        <form action="/upload" method="post" onsubmit="return validateEmail() && validatePhoneNumber()" enctype="multipart/form-data"  >
+            <label>Full Name</label><br>
+            <input type="text"  name="full_name" required><br><br>
+
+            <label>University Email</label><br>
+            <input type="email" id="email" name="au_email" required><br><br>
+
+            <label>Phone Number</label><br>
+            <input type="text"  name="ph_number" id="ph_num" maxlength="10" required><br><br>
+
+            <label>Faculty ID</label>
+            <input type="text" maxlength="6" name="faculty_id"  required><br><br>
+
+
+            <label>Faculty Department</label><br>
+            <select name="department" required>
+                <option>--select--</option>
+                <option value="Engineering And Technology">School of Engineering And Technology</option>
+                <option value="Basic Applied Sciences">School of Basic Applied Sciences</option>
+                <option value="Liberal Arts and Culture Studies">School of Liberal Arts and Culture Studies</option>
+                <option value="Business and Economics">School of Business and Economics</option>
+                <option value="Law and Justice">School of Law and Justice</option>
+                <option value="Media and Communication">School of Media and Communication</option>
+                <option value="Education">School of Education</option>
+                <option value="Life Science & Biotechnology">School of Life Science & Biotechnology</option>
+                <option value="Medical Sciences">School of Medical Sciences</option>
+                <option value="Smart Agriculture">School of Smart Agriculture</option>
+            </select><br><br>
+
+            <label>Subject</label><br>
+            <select id="subject"  name="subject" required>
+                <option value="">Select a Subject</option>
+                <option value="Actuarial Science">Actuarial Science</option>
+                <option value="Astrophysics">Astrophysics</option>
+                <option value="Biochemistry">Biochemistry</option>
+                <option value="Biotechnology">Biotechnology</option>
+                <option value="Botany">Botany</option>
+                <option value="Ceramics">Ceramics</option>
+                <option value="Criminology">Criminology</option>
+                <option value="Ecology">Ecology</option>
+                <option value="Ethnic Studies">Ethnic Studies</option>
+                <option value="Food Science">Food Science</option>
+                <option value="Forensic Science">Forensic Science</option>
+                <option value="Genetics">Genetics</option>
+                <option value="Geography">Geography</option>
+                <option value="Geology">Geology</option>
+                <option value="Marine Biology">Marine Biology</option>
+                <option value="Materials Science">Materials Science</option>
+                <option value="Meteorology">Meteorology</option>
+                <option value="Microbiology">Microbiology</option>
+                <option value="Oceanography">Oceanography</option>
+                <option value="Paleontology">Paleontology</option>
+                <option value="Parapsychology">Parapsychology</option>
+                <option value="Philology">Philology</option>
+                <option value="Physical Therapy">Physical Therapy</option>
+                <option value="Physiology">Physiology</option>
+                <option value="Quantum Physics">Quantum Physics</option>
+                <option value="Robotics">Robotics</option>
+                <option value="Seismology">Seismology</option>
+                <option value="Stem Cell Research">Stem Cell Research</option>
+                <option value="Textile Design">Textile Design</option>
+                <option value="Theoretical Physics">Theoretical Physics</option>
+                <option value="Veterinary Science">Veterinary Science</option>
+                <option value="Wildlife Biology">Wildlife Biology</option>
+                <option value="Zoology">Zoology</option>
+                <option value="algorithms">Algorithms</option>
+                <option value="data-structures">Data Structures</option>
+                <option value="database-management">Database Management</option>
+                <option value="computer-networks">Computer Networks</option>
+                <option value="operating-systems">Operating Systems</option>
+                <option value="software-engineering">Software Engineering</option>
+                <option value="web-development">Web Development</option>
+                <option value="machine-learning">Machine Learning</option>
+                <option value="artificial-intelligence">Artificial Intelligence</option>
+                <option value="cybersecurity">Cybersecurity</option>
+                <option value="computer-graphics">Computer Graphics</option>
+                <option value="human-computer-interaction">Human-Computer Interaction</option>
+                <option value="literature">Literature</option>
+                <option value="history">History</option>
+                <option value="philosophy">Philosophy</option>
+                <option value="art-history">Art History</option>
+                <option value="music">Music</option>
+                <option value="theater">Theater</option>
+                <option value="film-studies">Film Studies</option>
+                <option value="linguistics">Linguistics</option>
+                <option value="cultural-studies">Cultural Studies</option>
+                <option value="anthropology">Anthropology</option>
+                <option value="sociology">Sociology</option>
+                <option value="psychology">Psychology</option>
+                <option value="structural-analysis">Structural Analysis</option>
+                <option value="concrete-technology">Concrete Technology</option>
+                <option value="geotechnical-engineering">Geotechnical Engineering</option>
+                <option value="fluid-mechanics">Fluid Mechanics</option>
+                <option value="transportation-engineering">Transportation Engineering</option>
+                <option value="environmental-engineering">Environmental Engineering</option>
+                <option value="surveying">Surveying</option>
+                <option value="construction-management">Construction Management</option>
+                <option value="hydrology">Hydrology</option>
+                <option value="structural-design">Structural Design</option>
+                <option value="project-management">Project Management</option>
+                <option value="soil-mechanics">Soil Mechanics</option>
+                <option value="cell-biology">Cell Biology</option>
+                <option value="molecular-biology">Molecular Biology</option>
+                <option value="genetics">Genetics</option>
+                <option value="biochemistry">Biochemistry</option>
+                <option value="microbiology">Microbiology</option>
+                <option value="bioprocess-engineering">Bioprocess Engineering</option>
+                <option value="immunology">Immunology</option>
+                <option value="bioinformatics">Bioinformatics</option>
+                <option value="biophysics">Biophysics</option>
+                <option value="biostatistics">Biostatistics</option>
+                <option value="nanotechnology">Nanotechnology</option>
+                <option value="biomedical-engineering">Biomedical Engineering</option>
+                <option value="crop-production">Crop Production</option>
+                <option value="soil-science">Soil Science</option>
+                <option value="agricultural-engineering">Agricultural Engineering</option>
+                <option value="agricultural-economics">Agricultural Economics</option>
+                <option value="plant-pathology">Plant Pathology</option>
+                <option value="entomology">Entomology</option>
+                <option value="horticulture">Horticulture</option>
+                <option value="animal-husbandry">Animal Husbandry</option>
+                <option value="agricultural-machinery">Agricultural Machinery</option>
+                <option value="agribusiness-management">Agribusiness Management</option>
+                <option value="agroforestry">Agroforestry</option>
+                <option value="agroecology">Agroecology</option>
+                <option value="anatomy">Anatomy</option>
+                <option value="physiology">Physiology</option>
+                <option value="biochemistry">Biochemistry</option>
+                <option value="pharmacology">Pharmacology</option>
+                <option value="pathology">Pathology</option>
+                <option value="microbiology">Microbiology</option>
+                <option value="immunology">Immunology</option>
+                <option value="medical-genetics">Medical Genetics</option>
+                <option value="medical-ethics">Medical Ethics</option>
+                <option value="medical-research-methods">Medical Research Methods</option>
+                <option value="internal-medicine">Internal Medicine</option>
+                <option value="surgery">Surgery</option>
+                <option value="classical-mechanics">Classical Mechanics</option>
+                <option value="electromagnetism">Electromagnetism</option>
+                <option value="quantum-mechanics">Quantum Mechanics</option>
+                <option value="thermodynamics">Thermodynamics</option>
+                <option value="statistical-physics">Statistical Physics</option>
+                <option value="solid-state-physics">Solid State Physics</option>
+                <option value="fluid-dynamics">Fluid Dynamics</option>
+                <option value="optics">Optics</option>
+                <option value="astrophysics">Astrophysics</option>
+                <option value="nuclear-physics">Nuclear Physics</option>
+                <option value="particle-physics">Particle Physics</option>
+                <option value="biophysics">Biophysics</option>
+                <option value="educational-psychology">Educational Psychology</option>
+                <option value="curriculum-design">Curriculum Design</option>
+                <option value="instructional-technology">Instructional Technology</option>
+                <option value="assessment-and-evaluation">Assessment and Evaluation</option>
+                <option value="pedagogy">Pedagogy</option>
+                <option value="educational-leadership">Educational Leadership</option>
+                <option value="special-education">Special Education</option>
+                <option value="language-education">Language Education</option>
+                <option value="literacy-education">Literacy Education</option>
+                <option value="mathematics-education">Mathematics Education</option>
+                <option value="science-education">Science Education</option>
+                <option value="social-studies-education">Social Studies Education</option>
+                <option value="general-psychology">General Psychology</option>
+                <option value="developmental-psychology">Developmental Psychology</option>
+                <option value="abnormal-psychology">Abnormal Psychology</option>
+                <option value="cognitive-psychology">Cognitive Psychology</option>
+                <option value="social-psychology">Social Psychology</option>
+                <option value="biopsychology">Biopsychology</option>
+                <option value="psychological-testing">Psychological Testing</option>
+                <option value="clinical-psychology">Clinical Psychology</option>
+                <option value="industrial-organizational-psychology">Industrial-Organizational Psychology</option>
+                <option value="health-psychology">Health Psychology</option>
+                <option value="forensic-psychology">Forensic Psychology</option>
+                <option value="positive-psychology">Positive Psychology</option>
+                <option value="mass-communication">Mass Communication</option>
+                <option value="media-theory">Media Theory</option>
+                <option value="journalism">Journalism</option>
+                <option value="broadcasting">Broadcasting</option>
+                <option value="digital-media">Digital Media</option>
+                <option value="public-relations">Public Relations</option>
+                <option value="advertising">Advertising</option>
+                <option value="film-studies">Film Studies</option>
+                <option value="television-production">Television Production</option>
+                <option value="media-ethics">Media Ethics</option>
+                <option value="media-law">Media Law</option>
+                <option value="visual-communication">Visual Communication</option>
+            </select><br><br>
+
+            <label>Course Code</label><br>
+            <input type="text" maxlength="6" name="course_code"  required><br><br>
+
+            <label>Question Paper</label><input type="file" name="qus_paper" accept=".pdf"  required><br><br>
+            <input  type="hidden" name="time" id="submission_time">
+            <input type="hidden" name="date" id="submission_date">
+            <input type="checkbox" id="checkbox" required>&nbsp;&nbsp;&nbsp;<label id="confirm" >I certify that the information provided above is true and accurate to the best of my knowledge.</label><br><br>
+
+            <input type="submit" class="btn" value="SUBMIT" onclick="submitForm()" >
+
+        </form>
+    </div>
+</center>
+</body>
+</html>

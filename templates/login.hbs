@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Faculty Exclusive Portal</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+        body{
+            background-color: olivedrab;
+        }
+        #div1{
+            background-color: lightgray;
+            align-items: center;
+            display: flex;
+            height: fit-content;
+        }
+        #img1{
+            height: 130px;
+            width: 110px;
+        }
+        #hd1{
+            color:#005bac;
+            text-decoration: underline dotted #005bac;
+            font-family: "DM Sans", sans-serif;
+
+        }
+        #a1{
+            margin-left: 40%;
+            text-decoration: none;
+            font-size: 23px;
+            color:#005bac;
+            font-family: "DM Sans", sans-serif;
+
+            &:hover{
+                font-weight: bolder;
+                text-decoration: underline dotted #005bac;
+                transition: 0.3s ease ;
+            }
+        }
+        #a2{
+            text-decoration: none;
+            font-size: 23px;
+            color:#005bac;
+            font-family: "DM Sans", sans-serif;
+
+            &:hover{
+                font-weight: bolder;
+                text-decoration: underline dotted #005bac;
+                transition: 0.3s ease ;
+            }
+        }
+
+        .main_div1 {
+            margin-left: 10%; /* Adjust margin to position text on the left */
+        }
+
+        .sliding-text_hd {
+            font-family: "Montserrat", sans-serif;
+            margin-top: 12%;
+            font-size: xxx-large;
+            position: absolute;
+            top: 17%; /* Adjust position to start from the center vertically */
+            left: -30%; /* Adjust to position text on the left */
+            transform: translateY(-50%); /* Center text vertically */
+            animation: slideLeft 3s ease forwards;
+        }
+
+        @keyframes slideLeft {
+            0% { left: -30%; }
+            100% { left: 10%; }
+        }
+
+        .sliding-text {
+            margin-top: 12%;
+            font-family: "Montserrat", sans-serif;
+            font-size: x-large;
+            position: absolute;
+            top: 30%; /* Adjust position to start from the center vertically */
+            left: -50%; /* Adjust to position text on the left */
+            transform: translateY(-50%); /* Center text vertically */
+            animation: slideLeft 3s ease forwards;
+        }
+
+        @keyframes slideLeft {
+            0% { left: -41%; }
+            100% { left: 10%; }
+        }
+
+        .main_div2{
+            background-color: rgba(225,225,225,0.3);
+            border-radius: 10px;
+            height: 400px;
+            width: 300px;
+            margin-left: 70%;
+            margin-top: 08%;
+            font-family: "DM Sans", sans-serif;
+
+
+            &:hover{
+                border-width:0.3px ;
+                border-color: maroon;
+                border-style: solid;
+
+            }
+        }
+
+        #inp1,#inp2,#inp3{
+            width: 260px;
+            height: 25px;
+            border-radius: 5px;
+            border: none;
+
+            &:hover{
+                border-style: solid;
+                border-width: 1px;
+                border-color: maroon;
+            }
+        }
+
+        .lb,.lb1{
+            margin-right: 55%;
+            font-size: 17px;
+        }
+
+        .lbr{
+            font-size: 17px;
+            align-self: center;
+        }
+        #lbid{
+            margin-right: 55%;
+        }
+        .submit_btn{
+            margin-top: 10px;
+            text-align: center;
+            width: 130px;
+            height:40px;
+            background-color: #af0000;
+            color:white;
+            font-size:17px ;
+            border-radius: 7px;
+            font-family: "DM Sans", sans-serif;
+            border: none;
+            font-weight: bold;
+
+            &:hover{
+                background-color: #5b0101;
+                transition: 0.5s ease;
+                cursor: pointer;
+            }
+
+        }
+        #reg{
+            cursor: pointer;
+            color:maroon;
+
+            &:hover{
+                font-weight: bolder;
+                transition: 0.3s ease;
+            }
+        }
+        .fr_psw{
+            margin-left: 177px;
+            font-size: 11px;
+            color: maroon;
+            text-decoration: none;
+
+
+            &:hover{
+                font-weight: bolder;
+                text-decoration: underline;
+                transition: 0.3s ease;
+            }
+        }
+    </style>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            const radioInputs = document.querySelectorAll('input[type="radio"]');
+            const facultyIdLabel = document.querySelector('.lb1');
+
+            // Add event listener to each radio input
+            radioInputs.forEach(input => {
+                input.addEventListener('click', function() {
+                    // Check if the clicked radio is for HOD
+                    if (input.value === 'HOD') {
+                        facultyIdLabel.textContent = 'HOD ID'; // Change label text to "HOD ID"
+                    } else if(input.value === 'Faculty') {
+                        facultyIdLabel.textContent = 'Faculty ID'; // Revert label text to "Faculty ID"
+                    }else if(input.value === 'Coordinator'){
+                        facultyIdLabel.textContent= '   ' + 'Coordinator ID'
+                    }
+                });
+            });
+        });
+
+        function validateEmail() {
+            var email = document.getElementById('inp1').value;
+            var pattern = /^[a-zA-Z0-9._%+-]+@stu\.adamasuniversity\.ac\.in$/;
+            if (pattern.test(email)) {
+                return true;
+            } else {
+                alert('Email is not valid! It should be in the format: user@stu.adamasuniversity.ac.in');
+                return false;
+            }
+        }
+
+
+        
+    </script>
+</head>
+<body>
+<header>
+    <div id="div1">
+      <img  id="img1" src="/styles/Adamas_University_logo-removebg-preview.png"><h1 id="hd1">Adamas Exclusive Faculty Zone</h1>  <a href="https://apply.adamasuniversity.ac.in/?utm_source=collegedunia&utm_medium=text11&utm_campaign=online" target="_blank" id="a1" >About Us</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://admissions.adamasuniversity.ac.in/?utm_source=Unipro&utm_medium=sitelink1&utm_campaign=Adamas_University_Sitelink&utm_source=Unipro&utm_medium=search&utm_campaign=Unipro_Adamas_Brand_Search_Phrase_2024&gad_source=1&gclid=Cj0KCQjwltKxBhDMARIsAG8KnqWmyFVwxIgCLABu8Jx_XHwEUcMKD0b_oUnKg6aLDG-cVROneukSZDsaAkT1EALw_wcB" target="_blank" id="a2">Contact Us</a>
+    </div>
+</header>
+<main>
+    <div class="main_div1" >
+        <h2 class="sliding-text_hd"><u>Instructions:</u></h2>
+        <ul class="sliding-text">
+            <li>Students Not Allowed</li>
+            <li>Choose Your Post Faculty/HOD</li>
+            <li>Login By your University Email, Password and Faculty ID</li>
+            <li>Once The Question Paper Uploaded Not Be Changed</li>
+            <li>If You Are Not Registered Yet Then Contact to the Admin/HOD</li>
+        </ul>
+    </div>
+    <div class="main_div2" align="center"><br>
+         <h2 align="center">Log In</h2><hr><br>
+        <form action="/login" method="post"  onsubmit="return validateEmail()" >
+        <input type="radio" name="post" value="Faculty"  required> <label class="lbr">Faculty</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="post" value="HOD"  required><label class="lbr">HOD</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="post" value="Coordinator"  required> <label class="lbr">Coordinator</label><br><br>
+            <label for="inp1" class="lb" >Username</label><br>
+            <input type="email" name="username" id="inp1" required> <br><br>
+            <label for="inp2" id="lbid" class="lb1">Faculty ID</label><br>
+            <input type="text" maxlength="6" name="id" id="inp2" required><br><br>
+            <label for="inp3" class="lb">Password</label><br>
+            <input type="password" name="password"  id="inp3" required><br><a href="/forgot_password" class="fr_psw" id="fr_psw" >Forgot password?</a><br><br>
+
+            <input type="submit" value="SUBMIT" class="submit_btn" required>
+
+        </form>
+    </div>
+</main>
+</body>
+</html>
